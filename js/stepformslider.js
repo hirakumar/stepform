@@ -78,6 +78,9 @@ StepSlider.setEvent=function(){
 	// Last Slide
 	if(allFieldSet.length==StepSlider.currentIndex+1){
 		StepSlider.showData();
+		console.log(StepSlider.el.querySelector('button.continue_btn').innerHTML="Confirm Purchase");
+	}else{
+		console.log(StepSlider.el.querySelector('button.continue_btn').innerHTML="Save, Continue");
 	}
 	
 	
@@ -113,13 +116,13 @@ StepSlider.checkTotalValidate=function(){
 		StepSlider.el.querySelector('button.continue_btn').removeAttribute("disabled");
 		
 		// Check to matchc password and confirmpassword on first fieldset 
-		if(StepSlider.currentIndex=0){
+		/*if(StepSlider.currentIndex==0){
 			let pp=StepSlider.el.querySelector('input#password').value;
 			let cc=StepSlider.el.querySelector('input#confirmPassword').value;
 			if(pp!=cc){
 				StepSlider.el.querySelector('button.continue_btn').disabled="disabled";
 			}
-		}
+		}*/
 		
 	}else{
 		StepSlider.el.querySelector('button.continue_btn').disabled="disabled";
@@ -129,18 +132,45 @@ StepSlider.checkTotalValidate=function(){
 StepSlider.showMySlide=function(event){
 	let el =StepSlider.el;
 	this.slides=StepSlider.slides;
+	let triggerIndex = event.currentTarget.dataset.index;
 	console.log("My Index :" + event.currentTarget.dataset.index);
 	console.log("Current Index " + StepSlider.currentIndex);
 	this.slides[StepSlider.currentIndex].dataset.active=false;
+	// Making own fieldset active = true
 	this.slides[event.currentTarget.dataset.index].dataset.active=true;
+	//event.currentTarget.classList('active');
+	console.log(event.currentTarget);
+	// Set Active Class and remove disable
+	/*event.currentTarget.classList.add('active');
+	event.currentTarget.classList.remove('disable');*/
+	let activeTriggers = StepSlider.el.querySelectorAll("ul.pagination li a[data-index='"+triggerIndex+"']");
+	let previousTrigger = StepSlider.el.querySelectorAll("ul.pagination li a[data-index='"+StepSlider.currentIndex+"']");
+	console.log("Total Triggers :" + activeTriggers.length);
+	console.log(activeTriggers);
+	for(ele of activeTriggers){
+		ele.classList.add('active');
+		ele.classList.remove('disable');
+	}
+	for (ele of previousTrigger){
+		ele.classList.remove('active');
+		ele.classList.add('disable');
+	}
+	console.log("After Edited");
+	console.log(activeTriggers);
+	
+	
+	
+	if(StepSlider.currentIndex<this.slides.length){
+		
+		console.log(StepSlider.el.querySelector('button.continue_btn').innerHTML="Save, Continue");
+	}else{
+		console.log(StepSlider.el.querySelector('button.continue_btn').innerHTML="Confirm Purchase");
+	}
+	
 	StepSlider.currentIndex=event.currentTarget.dataset.index;
-	/*
-	this.slides[StepSlider.currentIndex].dataset.active=false;
-	StepSlider.currentIndex++;
-	this.slides[event.target.dataset.index].dataset.active=true;*/
 	
 }
-StepSlider.goNext=function(){
+StepSlider.goNext=function(event){
 	
 	let el =StepSlider.el;
 	this.slides=StepSlider.slides;
@@ -159,6 +189,7 @@ StepSlider.goNext=function(){
 		StepSlider.setDone(StepSlider.currentIndex);
 		StepSlider.currentIndex++;
 		this.slides[StepSlider.currentIndex].dataset.active=true;
+		
 	}
 	
 	//setActive();
