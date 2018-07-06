@@ -1,0 +1,10 @@
+#form_wizard fieldset[data-active='true']{display:block}
+#form_wizard fieldset,#form_wizard fieldset[data-active='false']{display:none}
+.pagination li a.active{opacity:1}
+.pagination li a.disable{opacity:0.5; pointer-events: none;}
+.pagination li a.done{color:blue; opacity:1}
+.continue_btn.disabled{opacity:0.5}
+.pagination li a.disable.done{pointer-events: auto;}
+ button.disabled{pointer-events: auto;} 
+ label.error{color:red}
+ input.error{border:solid 1px red}
