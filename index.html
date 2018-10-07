@@ -7,9 +7,11 @@
 </head>
 
 <body>
+<div class="container"><div class="row"><div class="col-sm-12">
+<h1 class="text-center mt-5 mb-5">Step Form</h1>
 <div class="form_wrapper">
 	<form action="http://yahoo.com" id="form_wizard" class="nutrition_form" name="form_wizard">
-		<ul class="pagination">
+		<ul class="pagination pagination-top">
 			<li><a href="#" data-index="0"><span class="count">1</span>
 			<span class="step">Step One</span>
 			<span class="step_title">User Details</span></a></li>
@@ -27,7 +29,7 @@
 		
 		<fieldset data-active="true">
 			<div class="common_form_box">
-				<h4>Contact Details 0</h4>
+				<h4>Contact Details</h4>
 				<div class="form-group">
 					<label for="fname">First Name</label>
 					<input type="text" class="form-control" id="fname" required placeholder="Type here…">
@@ -45,7 +47,7 @@
 
 				<div class="form-group">
 					<label for="pnumber">Phone Number</label>
-					<input type="text" class="form-control" id="pnumber" required placeholder="Type here…">
+					<input type="text" class=" form-control" id="pnumber" required placeholder="Type here…">
 				</div>
 			</div>
 
@@ -74,7 +76,7 @@
 		
 		<fieldset data-active="false">
 			<div class="common_form_box">
-				<h4>Contact Details 1</h4>
+				<h4>Contact Details</h4>
 				<div class="form-group">
 					<label for="country">Country</label>
 					<select class="form-control" id="country">
@@ -111,7 +113,7 @@
 		
 		<fieldset data-active="false">
 			<div class="common_form_box">
-				<h4>Payment Information 2</h4>
+				<h4>Payment Information</h4>
 
 				<div class="form-group">
 					<label for="chname">Card Holder Name</label>
@@ -160,35 +162,42 @@
 				<h4>Review Order 3</h4>
 
 				<span class="order_item">Order Items (1)</span>
-				<div class="media">
-					<div class="media-left">
-						<a href="#">
-							<img class="media-object" src="<?php echo base_url()?>assets/images/students/amanda.png" alt="Purchase item">
-						</a>
-					</div>
-					<div class="media-body">
-						<h4 class="media-heading">Purchase item here</h4>
-					</div>
-				</div>
+				
 				<div id="personalData"></div>
 				
 			</div>
 		</fieldset>
-
-		<button type="button" class="continue_btn" disabled >Save, Continue</button>
+		<div class="d-block text-center p-5">
+	
 		
-	<ul class="pagination">
-		<li><a href="#" data-index="0">0</a></li>
-			<li><a href="#" data-index="1">1</a></li>
-			<li><a href="#" data-index="2"> 2</a></li>
-			<li><a href="#" data-index="3">3</a></li>
-		</ul>
+		<button type="button" class="continue_btn btn btn-primary" disabled >Save, Continue</button>
+		</div>
+	
 		
+		<nav >
+  <ul class="pagination  justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link disabled" href="#" tabindex="-1" data-index="0">1</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#" data-index="1">2</a></li>
+    <li class="page-item ">
+      <a class="page-link" href="# data-index="2"">2 <span class="sr-only">3</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" data-index="3" href="#">4</a></li>
+   
+  </ul>
+</nav>
 	</form>
 </div>
-<link href="css/style.css" rel="stylesheet" />
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</div>
+</div>
+</div>
 
+<link href="css/style.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
 <script>
 
